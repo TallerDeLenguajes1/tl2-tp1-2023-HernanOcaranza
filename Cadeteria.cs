@@ -35,9 +35,26 @@ namespace SistemaDeCadeteria
             return cadetes.Find(p => p.Id == id);
         }
 
+        public bool PerteneceACadeteria(Cadete cadete)
+        {
+            return cadetes.Find(c => c == cadete) != null;
+        }
+
+        public bool PerteneceACadeteria(Pedido pedido)
+        {
+            return pedidos.Find(p => p == pedido) != null;
+        }
+
         public void AsignarPedidoACadete(Pedido pedido, Cadete cadete)
         {
-            cadete.AgregarPedido(pedido);
+            if (this.PerteneceACadeteria(cadete))
+            {
+                if (this.PerteneceACadeteria(pedido))
+                {
+                    pedidos.Remove(pedido);
+                    cadete.AgregarPedido(pedido);
+                }
+            }
         }
 
         public string ListarCadetes()

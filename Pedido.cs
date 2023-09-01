@@ -36,5 +36,10 @@ namespace SistemaDeCadeteria
             info += $"Estado {estado.ToString()}\n";
             return info;
         }
+
+        public void CambiarEstadoPedido(EstadoPedido nuevoEstado)
+        {
+            estado = nuevoEstado;
+        }
     }
 }
