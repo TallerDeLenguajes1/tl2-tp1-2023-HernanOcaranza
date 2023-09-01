@@ -25,12 +25,12 @@ namespace SistemaDeCadeteria
             pedidos.Add(nuevoPedido);
         }
 
-        public Pedido? GetPedidoPorId(int id)
+        public Pedido GetPedidoPorId(int id)
         {
             return pedidos.Find(p => p.Numero == id);
         }
 
-        public Cadete? GetCadetePorId(int id)
+        public Cadete GetCadetePorId(int id)
         {
             return cadetes.Find(p => p.Id == id);
         }
@@ -43,18 +43,13 @@ namespace SistemaDeCadeteria
         public bool PerteneceACadeteria(Pedido pedido)
         {
             return pedidos.Find(p => p == pedido) != null;
-        }
+        }        
 
-        public void AsignarPedidoACadete(Pedido pedido, Cadete cadete)
+        public void AsignarCadeteAPedido(int idCadete, int idPedido)
         {
-            if (this.PerteneceACadeteria(cadete))
-            {
-                if (this.PerteneceACadeteria(pedido))
-                {
-                    pedidos.Remove(pedido);
-                    cadete.AgregarPedido(pedido);
-                }
-            }
+            Cadete cadete = GetCadetePorId(idCadete);
+            Pedido pedido = GetPedidoPorId(idPedido);
+            pedido.AsignarCadete(cadete);            
         }
 
         public string ListarCadetes()
@@ -67,14 +62,25 @@ namespace SistemaDeCadeteria
             return info;
         }
 
-        public string ListarPedidosSinAsignar()
+        public string ListarPedidos()
         {
-            string info = "Listado de Pedidos sin asignar:\n";
+            string info = "Listado de Pedidos:\n";
             foreach (var pedido in pedidos)
             {
                 info += pedido.GetInfoPedido();
             }
             return info;
+        }
+
+        public List<Pedido> GetListadoDePedidosDeUnCadete(Cadete cadete)
+        {
+            return pedidos.Where(p => p.Cadete == cadete).ToList();
+        }        
+
+        public double JornalACobrar(int idCadete)
+        {
+            Cadete cadete = GetCadetePorId(idCadete);
+            return GetListadoDePedidosDeUnCadete(cadete).Where(p => p.EstaRealizado()).Count() * Constantes.VALOR_PEDIDO;            
         }
     }
 }

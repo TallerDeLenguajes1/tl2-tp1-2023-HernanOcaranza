@@ -5,34 +5,18 @@ namespace SistemaDeCadeteria
         private int id;
         private string nombre;
         private string direccion;
-        private string telefono;
-        private List<Pedido> pedidos;
+        private string telefono;        
 
         public int Id { get => id; }
         public string Nombre { get => nombre; }
 
-        public Cadete(int id, string nombre, string direccion, string telefono, List<Pedido> pedidos)
+        public Cadete(int id, string nombre, string direccion, string telefono)
         {
             this.id = id;
             this.nombre = nombre;
             this.direccion = direccion;
-            this.telefono = telefono;
-            this.pedidos = pedidos;
-        }        
-
-        public int CantidadDePedidosRealizados()
-        {
-            return pedidos.Select(p => p.Estado == EstadoPedido.Realizado).Count();
-        }
-        public double JornalACobrar()
-        {
-            return CantidadDePedidosRealizados() * Constantes.VALOR_PEDIDO;
-        }
-
-        public void AgregarPedido(Pedido nuevoPedido)
-        {
-            pedidos.Add(nuevoPedido);
-        }
+            this.telefono = telefono;            
+        }                            
 
         public string GetInfoCadete()
         {
