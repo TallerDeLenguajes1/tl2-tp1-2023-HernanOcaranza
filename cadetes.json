@@ -1,0 +1,30 @@
+[
+    {
+        "id" : 1,
+        "nombre" : "Hernan Ocaranza",
+        "direccion" : "Alberdi 566",
+        "telefono" : "381459340",
+        "pedidos" : []
+    },
+    {
+        "id" : 2,
+        "nombre" : "Fernanda Villagra",
+        "direccion" : "Barrio 60V Manzana A Casa 27",
+        "telefono" : "3813905494",
+        "pedidos" : []
+    },
+    {
+        "id" : 3,
+        "nombre" : "Susana Cantos",
+        "direccion" : "Alberdi 566",
+        "telefono" : "3815109013",
+        "pedidos" : []
+    },
+    {
+        "id" : 4,
+        "nombre" : "Luis Ocaranza",
+        "direccion" : "Alberdi 566",
+        "telefono" : "3815547459",
+        "pedidos" : []
+    }
+]
