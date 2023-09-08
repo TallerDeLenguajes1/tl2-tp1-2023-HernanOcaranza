@@ -2,10 +2,9 @@
 {
     public class Program
     {
-        public static void main()
+        public static void Main()
         {
-            var cadetes = CargaDeDatos.CargarCadetes(Constantes.NOMBRE_ARCHIVO_CADETES);
-            var cadeteria = CargaDeDatos.CargarCadeteria(Constantes.NOMBRE_ARCHIVO_CADETERIA);
+            System.Console.WriteLine("Funciona");            
             
             // System.Console.WriteLine("Ingrese los datos del pedido:");
             // System.Console.WriteLine("Observacion: ");

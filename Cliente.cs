@@ -25,7 +25,7 @@ namespace SistemaDeCadeteria
             info += $"Telefono: {telefono}\n";
             return info;
         }
-        
+
         public string GetDatosDireccion()
         {            
             string info = $"Direccion: {direccion}\n";
@@ -33,7 +33,7 @@ namespace SistemaDeCadeteria
             return info;
         }
 
-        public string GetInfoCliente()
+        public string GetInfo()
         {
             string info = GetDatos();
             info += GetDatosDireccion();

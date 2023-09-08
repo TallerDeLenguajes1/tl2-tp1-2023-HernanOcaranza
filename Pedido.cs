@@ -35,12 +35,13 @@ namespace SistemaDeCadeteria
             return cliente.GetDatos();
         }
 
-        public string GetInfoPedido()
+        public string GetInfo()
         {
             string info = $"Numero de pedido: {numero}\n";
             info += $"Observacion: {observacion}\n";
-            info += cliente.GetInfoCliente();
+            info += cliente.GetInfo();
             info += $"Estado {estado.ToString()}\n";
+            info += cadete.GetInfo();
             return info;
         }
 

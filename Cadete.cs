@@ -18,7 +18,7 @@ namespace SistemaDeCadeteria
             this.telefono = telefono;            
         }                            
 
-        public string GetInfoCadete()
+        public string GetInfo()
         {
             string info = $"Nombre: {nombre}\n";
             info += $"Numero de cadete = {id}\n";
